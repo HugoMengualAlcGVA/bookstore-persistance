@@ -15,7 +15,7 @@ public class BookAuthorJpaEntity {
     @JoinColumn(name = "author_id")
     private AuthorJpaEntity author;
 
-    public BookAuthorJpaEntity(Long id, BookJpaEntity book, AuthorJpaEntity author) {
+    public BookAuthorJpaEntity(BookJpaEntity book, AuthorJpaEntity author) {
         this.book = book;
         this.author = author;
     }
@@ -43,4 +43,6 @@ public class BookAuthorJpaEntity {
     public void setAuthor(AuthorJpaEntity author) {
         this.author = author;
     }
+
+
 }

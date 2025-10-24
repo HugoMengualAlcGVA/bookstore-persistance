@@ -17,21 +17,29 @@ public class AuthorJpaEntity implements Serializable {
     private String biographyEs;
     @Column(name = "biography_en")
     private String biographyEn;
-    private Integer bithYear;
+    private Integer birthYear;
     private Integer deathYear;
     private String slug;
     @OneToMany(mappedBy = "author")
     private List<BookAuthorJpaEntity> bookAuthors;
 
-    public AuthorJpaEntity (Long id, String name, String nationality, String biographyEs, String biographyEn, Integer bithYear, Integer deathYear, String slug, List<BookAuthorJpaEntity> bookAuthors) {
+    public AuthorJpaEntity (Long id, String name, String nationality, String biographyEs, String biographyEn, Integer birthYear, Integer deathYear, String slug, List<BookAuthorJpaEntity> bookAuthors) {
         this.id = id;
         this.name = name;
         this.nationality = nationality;
         this.biographyEs = biographyEs;
         this.biographyEn = biographyEn;
-        this.bithYear = bithYear;
+        this.birthYear = birthYear;
         this.deathYear = deathYear;
         this.slug = slug;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -66,12 +74,12 @@ public class AuthorJpaEntity implements Serializable {
         this.biographyEn = biographyEn;
     }
 
-    public Integer getBithYear() {
-        return bithYear;
+    public Integer getBirthYear() {
+        return birthYear;
     }
 
-    public void setBithYear(Integer bithYear) {
-        this.bithYear = bithYear;
+    public void setBirthYear(Integer birthYear) {
+        this.birthYear = birthYear;
     }
 
     public Integer getDeathYear() {
@@ -88,5 +96,13 @@ public class AuthorJpaEntity implements Serializable {
 
     public void setSlug(String slug) {
         this.slug = slug;
+    }
+
+    public List<BookAuthorJpaEntity> getBookAuthors() {
+        return bookAuthors;
+    }
+
+    public void setBookAuthors(List<BookAuthorJpaEntity> bookAuthors) {
+        this.bookAuthors = bookAuthors;
     }
 }

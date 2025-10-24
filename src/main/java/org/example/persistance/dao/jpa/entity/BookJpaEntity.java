@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name="books")
@@ -50,12 +51,111 @@ public class BookJpaEntity implements Serializable {
         setAuthors(authors);
     }
 
+    public List<AuthorJpaEntity> getAuthors() {
+        return bookAuthors.stream().map(BookAuthorJpaEntity::getAuthor).collect(Collectors.toList());
+    }
+
     public void setAuthors(List<AuthorJpaEntity> authors) {
-        //this.bookAuthors = authors;
         this.bookAuthors.clear();
         for (AuthorJpaEntity author : authors) {
             BookAuthorJpaEntity bookAuthor = new BookAuthorJpaEntity(this, author);
             this.bookAuthors.add(bookAuthor);
         }
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public String getTitleEs() {
+        return titleEs;
+    }
+
+    public void setTitleEs(String titleEs) {
+        this.titleEs = titleEs;
+    }
+
+    public String getTitleEn() {
+        return titleEn;
+    }
+
+    public void setTitleEn(String titleEn) {
+        this.titleEn = titleEn;
+    }
+
+    public String getSynopsisEs() {
+        return synopsisEs;
+    }
+
+    public void setSynopsisEs(String synopsisEs) {
+        this.synopsisEs = synopsisEs;
+    }
+
+    public String getSynopsisEn() {
+        return synopsisEn;
+    }
+
+    public void setSynopsisEn(String synopsisEn) {
+        this.synopsisEn = synopsisEn;
+    }
+
+    public BigDecimal getBasePrice() {
+        return basePrice;
+    }
+
+    public void setBasePrice(BigDecimal basePrice) {
+        this.basePrice = basePrice;
+    }
+
+    public Double getDiscountPercentage() {
+        return discountPercentage;
+    }
+
+    public void setDiscountPercentage(Double discountPercentage) {
+        this.discountPercentage = discountPercentage;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
+    }
+
+    public String getPublicationDate() {
+        return publicationDate;
+    }
+
+    public void setPublicationDate(String publicationDate) {
+        this.publicationDate = publicationDate;
+    }
+
+    public PublisherJpaEntity getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(PublisherJpaEntity publisher) {
+        this.publisher = publisher;
+    }
+
+    public List<BookAuthorJpaEntity> getBookAuthors() {
+        return bookAuthors;
+    }
+
+    public void setBookAuthors(List<BookAuthorJpaEntity> bookAuthors) {
+        this.bookAuthors = bookAuthors;
     }
 }
