@@ -15,6 +15,8 @@ public class BookAuthorJpaEntity {
     @JoinColumn(name = "author_id")
     private AuthorJpaEntity author;
 
+    public BookAuthorJpaEntity() {}
+
     public BookAuthorJpaEntity(BookJpaEntity book, AuthorJpaEntity author) {
         this.book = book;
         this.author = author;

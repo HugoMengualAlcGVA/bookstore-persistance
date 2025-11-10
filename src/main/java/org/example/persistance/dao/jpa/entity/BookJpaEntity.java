@@ -36,6 +36,8 @@ public class BookJpaEntity implements Serializable {
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BookAuthorJpaEntity> bookAuthors = new ArrayList<>();
 
+    public BookJpaEntity() {}
+
     public BookJpaEntity(Long id, String isbn, String titleEs, String titleEn, String synopsisEs, String synopsisEn, BigDecimal basePrice, Double discountPercentage, String cover, String publicationDate, PublisherJpaEntity publisher, List<AuthorJpaEntity> authors) {
         this.id = id;
         this.isbn = isbn;

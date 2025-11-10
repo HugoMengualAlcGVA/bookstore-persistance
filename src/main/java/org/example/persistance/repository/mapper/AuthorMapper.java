@@ -5,7 +5,8 @@ import es.cesguiro.domain.repository.entity.AuthorEntity;
 import org.example.persistance.dao.jpa.entity.AuthorJpaEntity;
 
 public class AuthorMapper {
-    private static AuthorMapper INSTANCE;
+    public static AuthorMapper INSTANCE;
+
 
     private AuthorMapper() {}
 
@@ -28,8 +29,7 @@ public class AuthorMapper {
             author.biographyEn(),
             author.birthYear(),
             author.deathYear(),
-            author.slug(),
-            null
+            author.slug()
         );
     }
 

@@ -5,7 +5,7 @@ import es.cesguiro.domain.repository.entity.PublisherEntity;
 import org.example.persistance.dao.jpa.entity.PublisherJpaEntity;
 
 public class PublisherMapper {
-    private static PublisherMapper INSTANCE;
+    public static PublisherMapper INSTANCE;
 
     private  PublisherMapper() {
     }

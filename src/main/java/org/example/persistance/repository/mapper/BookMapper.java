@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class BookMapper {
-    private static BookMapper INSTANCE;
+    public static BookMapper INSTANCE;
 
     private BookMapper(){}
 

@@ -21,7 +21,10 @@
         <org.hibernate.validator>9.0.1.Final</org.hibernate.validator>
         <jakarta.transaction.version>2.0.1</jakarta.transaction.version>
         <jakarta.persistence-api.version>3.1.0</jakarta.persistence-api.version>
-
+        <org.spring.boot.version>3.5.6</org.spring.boot.version>
+        <org.instancio.version>5.5.1</org.instancio.version>
+        <org.flywaydb.version>11.3.0</org.flywaydb.version>
+        <com.h2database.version>2.3.232</com.h2database.version>
     </properties>
 
     <dependencies>
@@ -34,6 +37,49 @@
             <groupId>jakarta.persistence</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
             <version>${jakarta.persistence-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>${org.spring.boot.version}</version>
+        </dependency>
+
+        <!-- Dependencias para pruebas -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>${org.spring.boot.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${org.spring.boot.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-csv</artifactId>
+            <version>${org.apache.commons.csv.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${com.h2database.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>${org.flywaydb.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.instancio</groupId>
+            <artifactId>instancio-junit</artifactId>
+            <version>${org.instancio.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

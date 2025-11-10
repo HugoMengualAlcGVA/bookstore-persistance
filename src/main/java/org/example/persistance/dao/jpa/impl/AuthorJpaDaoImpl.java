@@ -7,7 +7,6 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import org.example.persistance.dao.jpa.AuthorJpaDao;
 import org.example.persistance.dao.jpa.entity.AuthorJpaEntity;
-import org.example.persistance.dao.jpa.entity.BookJpaEntity;
 
 import java.util.List;
 import java.util.Optional;

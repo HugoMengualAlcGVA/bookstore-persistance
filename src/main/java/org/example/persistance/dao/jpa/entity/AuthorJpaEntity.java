@@ -23,7 +23,9 @@ public class AuthorJpaEntity implements Serializable {
     @OneToMany(mappedBy = "author")
     private List<BookAuthorJpaEntity> bookAuthors;
 
-    public AuthorJpaEntity (Long id, String name, String nationality, String biographyEs, String biographyEn, Integer birthYear, Integer deathYear, String slug, List<BookAuthorJpaEntity> bookAuthors) {
+    public AuthorJpaEntity() {}
+
+    public AuthorJpaEntity (Long id, String name, String nationality, String biographyEs, String biographyEn, Integer birthYear, Integer deathYear, String slug) {
         this.id = id;
         this.name = name;
         this.nationality = nationality;
