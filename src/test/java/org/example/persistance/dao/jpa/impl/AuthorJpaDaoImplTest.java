@@ -28,14 +28,38 @@ class AuthorJpaDaoImplTest {
                 null,
                 "test-author"
         );
+
+        long countBefore = authorJpaDao.count();
+
         AuthorJpaEntity result = authorJpaDao.insert(newAuthor);
         Optional<AuthorJpaEntity> insertedAuthor = authorJpaDao.findBySlug(newAuthor.getSlug());
 
+        long countAfter = authorJpaDao.count();
+
         assertAll(
                 () -> assertNotNull(result.getId(), "Returned Author ID should not be null after insertion"),
-                () -> assertNotNull(result.getId(), "Inserted Author ID should not be null after insertion")
-        );
+                () -> assertEquals(countBefore + 1, countAfter)
 
+        );
+        insertedAuthor.ifPresent(authorJpaEntity -> assertAll(
+                () -> assertNotNull(authorJpaEntity.getId(), "Inserted Author ID should not be null after insertion"),
+                () -> assertEquals(newAuthor.getId(), insertedAuthor.get().getId()),
+                () -> assertEquals(newAuthor.getName(), insertedAuthor.get().getName()),
+                () -> assertEquals(newAuthor.getSlug(), insertedAuthor.get().getSlug()),
+                () -> assertEquals(newAuthor.getBookAuthors(), insertedAuthor.get().getBookAuthors()),
+                () -> assertEquals(newAuthor.getBiographyEn(), insertedAuthor.get().getBiographyEn()),
+                () -> assertEquals(newAuthor.getBiographyEs(), insertedAuthor.get().getBiographyEs()),
+                () -> assertEquals(newAuthor.getBirthYear(), insertedAuthor.get().getBirthYear()),
+                () -> assertEquals(newAuthor.getDeathYear(), insertedAuthor.get().getDeathYear()),
+                () -> assertEquals(newAuthor.getNationality(), insertedAuthor.get().getNationality())
+        ));
+
+    }
+    
+    @Test
+    @DisplayName("")
+    void findBySlugTest(){
+        
     }
 
 }
